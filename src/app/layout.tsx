@@ -22,14 +22,85 @@ const sans = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://strawberry-little-star.ideavo.app"),
-  title: `${site.name} | ${site.title}`,
-  description: site.description,
-  openGraph: {
-    title: site.name,
-    description: site.description,
-    images: ["/images/strawberry-school/classroom-session.jpeg"],
+  metadataBase: new URL("https://strawberry-little-star-school.vercel.app/"),
+
+  title: {
+    default: "Strawberry Little Star Pre-Primary School | Ahmednagar",
+    template: "%s | Strawberry Little Star",
   },
+
+  description:
+    "Strawberry Little Star Pre-Primary School in Ahmednagar offers Playgroup, Nursery, LKG, and UKG with a safe, joyful, and nurturing learning environment for young children.",
+
+  keywords: [
+    "Strawberry Little Star",
+    "Pre Primary School Ahmednagar",
+    "Nursery School",
+    "Playgroup",
+    "LKG",
+    "UKG",
+    "Best Preschool Ahmednagar",
+    "Kids School",
+    "Kindergarten Ahmednagar",
+    "Early Learning",
+  ],
+
+  authors: [
+    {
+      name: "Strawberry Little Star Pre-Primary School",
+    },
+  ],
+
+  creator: "Strawberry Little Star",
+
+  publisher: "Strawberry Little Star",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://strawberry-little-star-school.vercel.app",
+    title: "Strawberry Little Star Pre-Primary School",
+    description:
+      "A trusted preschool in Ahmednagar providing Playgroup, Nursery, LKG and UKG education with a warm and caring environment.",
+
+    siteName: "Strawberry Little Star",
+
+    images: [
+      {
+        url: "/images/strawberry-school/hero.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Strawberry Little Star School",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Strawberry Little Star Pre-Primary School",
+    description:
+      "Safe • Joyful • Creative learning for Playgroup, Nursery, LKG & UKG.",
+
+    images: ["/images/strawberry-school/hero.jpeg"],
+  },
+
+  alternates: {
+    canonical: "https://strawberry-little-star-school.vercel.app",
+  },
+
+  category: "Education",
 };
 
 export default function RootLayout({
