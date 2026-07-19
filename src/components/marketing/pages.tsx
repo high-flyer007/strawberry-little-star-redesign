@@ -676,12 +676,18 @@ export function AdmissionsPage() {
             </div>
           </Reveal>
           <Reveal>
-            <div className="relative min-h-[34rem] overflow-hidden rounded-[2.4rem] border border-white/60 bg-white/80 p-4 shadow-[0_24px_100px_rgba(15,23,42,0.08)] backdrop-blur-xl">
-              <div className="relative h-full overflow-hidden rounded-[1.8rem]">
-                <Image src="/images/strawberry-school/poster.jpeg" alt="Admission open poster" fill className="object-cover" sizes="(max-width: 768px) 100vw, 45vw" />
-              </div>
-            </div>
-          </Reveal>
+  <div className="rounded-[2.4rem] border border-white/60 bg-white/80 p-4 shadow-[0_24px_100px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+
+    <Image
+      src="/images/strawberry-school/admissions/admission-poster.jpeg"
+      alt="Admission Open"
+      width={900}
+      height={1200}
+      className="w-full rounded-[1.8rem] object-cover"
+    />
+
+  </div>
+</Reveal>
         </div>
       </section>
       <ContactStrip />
