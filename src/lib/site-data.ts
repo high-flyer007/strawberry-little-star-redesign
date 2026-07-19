@@ -31,8 +31,8 @@ export const site = {
   fullAddress:
     "House No. 58, Mahesh Colony, Bhutkarwadi, Savedi, Ahmednagar, Maharashtra",
   hours: "Monday to Saturday, 10:00 AM to 1:00 PM",
-  phones: ["+91 9960585115", "+91 9096294569"],
-  whatsappNumber: "919960585115",
+  phones: ["+91 9096294569", "+91 9960585115"],
+  whatsappNumber: "919096294569",
   mapsQuery:
     "House No.58 Mahesh Colony Bhutkarwadi Savedi Ahmednagar Maharashtra",
 };
