@@ -493,11 +493,25 @@ export function AboutPage() {
             </div>
           </Reveal>
           <Reveal>
-            <div className="relative min-h-[30rem] overflow-hidden rounded-[2.2rem] border border-white/60 bg-white/78 p-4 shadow-[0_24px_100px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+            {/* <div className="relative min-h-[30rem] overflow-hidden rounded-[2.2rem] border border-white/60 bg-white/78 p-4 shadow-[0_24px_100px_rgba(15,23,42,0.08)] backdrop-blur-xl">
               <div className="relative h-full overflow-hidden rounded-[1.8rem]">
                 <Image src="/images/strawberry-school/classroom-session.jpeg" alt="Classroom session" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
               </div>
-            </div>
+            </div> */}
+            <div className="relative min-h-[30rem] overflow-hidden rounded-[2.2rem] border border-white/60 bg-white/78 p-4 shadow-[0_24px_100px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+  <div className="relative h-full overflow-hidden rounded-[1.8rem]">
+
+   <Image
+    src="/images/strawberry-school/about/about-school.jpeg"
+    alt="About Strawberry Little Star"
+    width={900}
+    height={700}
+    className="w-full rounded-[1.8rem] object-cover"
+    priority
+  />
+
+  </div>
+</div>
           </Reveal>
         </div>
       </section>
