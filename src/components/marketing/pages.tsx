@@ -566,23 +566,62 @@ export function CampusPage() {
       />
       <CampusGalleryTeaser />
       <section className="px-4 py-8 md:px-6 md:py-16">
-        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2">
-          {galleryItems.slice(0, 4).map((item, index) => (
-            <Reveal key={item.src} delay={index * 0.06}>
-              <article className="relative min-h-[23rem] overflow-hidden rounded-[2rem] border border-white/60 bg-white/80 p-4 shadow-[0_20px_90px_rgba(15,23,42,0.06)] backdrop-blur-xl">
-                <div className="relative h-full overflow-hidden rounded-[1.6rem]">
-                  <Image src={item.src} alt={item.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950/65 via-transparent to-transparent" />
-                  <div className="absolute inset-x-4 bottom-4 text-white">
-                    <h3 className="text-2xl font-semibold">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-white/76">{item.caption}</p>
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+  <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2">
+
+    {/* Campus Image 1 */}
+    <Reveal delay={0}>
+      <article className="rounded-[2rem] border border-white/60 bg-white/80 p-4 shadow-[0_20px_90px_rgba(15,23,42,0.06)] backdrop-blur-xl">
+        <Image
+          src="/images/strawberry-school/campus/campus1.jpeg"
+          alt="Campus Image 1"
+          width={900}
+          height={650}
+          className="h-[420px] w-full rounded-[1.6rem] object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </article>
+    </Reveal>
+
+    {/* Campus Image 2 */}
+    <Reveal delay={0.06}>
+      <article className="rounded-[2rem] border border-white/60 bg-white/80 p-4 shadow-[0_20px_90px_rgba(15,23,42,0.06)] backdrop-blur-xl">
+        <Image
+          src="/images/strawberry-school/campus/campus2.jpeg"
+          alt="Campus Image 2"
+          width={900}
+          height={650}
+          className="h-[420px] w-full rounded-[1.6rem] object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </article>
+    </Reveal>
+
+    {/* Campus Image 3 */}
+    <Reveal delay={0.12}>
+      <article className="rounded-[2rem] border border-white/60 bg-white/80 p-4 shadow-[0_20px_90px_rgba(15,23,42,0.06)] backdrop-blur-xl">
+        <Image
+          src="/images/strawberry-school/campus/campus3.jpeg"
+          alt="Campus Image 3"
+          width={900}
+          height={650}
+          className="h-[420px] w-full rounded-[1.6rem] object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </article>
+    </Reveal>
+
+    {/* Campus Image 4 */}
+    <Reveal delay={0.18}>
+      <article className="rounded-[2rem] border border-white/60 bg-white/80 p-4 shadow-[0_20px_90px_rgba(15,23,42,0.06)] backdrop-blur-xl">
+        <Image
+          src="/images/strawberry-school/campus/campus4.jpeg"
+          alt="Campus Image 4"
+          width={900}
+          height={650}
+          className="h-[420px] w-full rounded-[1.6rem] object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </article>
+    </Reveal>
+
+  </div>
+</section>
       <ContactStrip />
     </>
   );
