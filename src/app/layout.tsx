@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Fredoka, Nunito } from "next/font/google";
 import Script from "next/script";
 
 import { LenisProvider } from "@/components/marketing/lenis-provider";
@@ -9,16 +9,14 @@ import { site } from "@/lib/site-data";
 
 import "./globals.css";
 
-const display = Cormorant_Garamond({
+const display = Fredoka({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
-const sans = Manrope({
+const sans = Nunito({
   variable: "--font-ui",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -90,8 +88,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Strawberry Little Star Pre-Primary School",
-    description:
-      "Safe • Joyful • Creative learning for Playgroup, Nursery, LKG & UKG.",
+    description: "Safe • Joyful • Creative learning for Playgroup, Nursery, LKG & UKG.",
 
     images: ["/images/strawberry-school/hero.jpeg"],
   },
@@ -111,10 +108,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${display.variable} ${sans.variable} bg-background font-sans text-foreground antialiased`}>
+        <a
+          href="#main-content"
+          className="sr-only rounded-full bg-navy px-5 py-3 text-sm font-bold text-cream focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[120]"
+        >
+          Skip to content
+        </a>
         <LenisProvider>
           <div className="relative min-h-screen overflow-x-clip">
             <SiteHeader />
-            <main>{children}</main>
+            <main id="main-content">{children}</main>
             <SiteFooter />
           </div>
         </LenisProvider>

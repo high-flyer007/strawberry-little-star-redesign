@@ -1,3 +1,4 @@
+import { Sparkle } from "@/components/decor/shapes";
 import { cn } from "@/lib/utils";
 
 type SectionHeadingProps = {
@@ -12,11 +13,35 @@ type SectionHeadingProps = {
 export function SectionHeading({ eyebrow, title, body, align = "left", className, tone = "dark" }: SectionHeadingProps) {
   return (
     <div className={cn(align === "center" && "mx-auto text-center", className)}>
-      <p className={cn("mb-4 text-xs font-semibold uppercase tracking-[0.34em]", tone === "light" ? "text-white/70" : "text-rose-500")}>{eyebrow}</p>
-      <h2 className={cn("max-w-3xl text-4xl leading-[0.95] font-semibold tracking-[-0.03em] md:text-6xl", tone === "light" ? "text-white" : "text-stone-950")}>
+      <p
+        className={cn(
+          "mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.18em]",
+          tone === "light"
+            ? "border-white/25 bg-white/10 text-sunshine"
+            : "border-sunshine/60 bg-sunshine/25 text-navy"
+        )}
+      >
+        <Sparkle className="size-3.5 text-strawberry" />
+        {eyebrow}
+      </p>
+      <h2
+        className={cn(
+          "max-w-3xl text-4xl leading-[1.02] font-semibold md:text-6xl",
+          tone === "light" ? "text-white" : "text-navy"
+        )}
+      >
         {title}
       </h2>
-      {body ? <p className={cn("mt-6 max-w-2xl text-base leading-8 md:text-lg", tone === "light" ? "text-white/72" : "text-stone-600")}>{body}</p> : null}
+      {body ? (
+        <p
+          className={cn(
+            "mt-5 max-w-2xl text-base leading-8 md:text-lg",
+            tone === "light" ? "text-white/75" : "text-navy/70"
+          )}
+        >
+          {body}
+        </p>
+      ) : null}
     </div>
   );
 }

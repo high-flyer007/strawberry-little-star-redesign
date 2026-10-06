@@ -77,7 +77,7 @@ export const programs: Program[] = [
     description:
       "A gentle first step into school life with music, movement, sensory play, and warm social interaction.",
     highlights: ["Comfort-first routine", "Motor play", "Rhymes and storytelling"],
-    color: "from-rose-300 via-pink-200 to-orange-100",
+    color: "#ff5c8a",
   },
   {
     name: "Nursery",
@@ -85,7 +85,7 @@ export const programs: Program[] = [
     description:
       "Children build confidence through circle time, creative expression, early language, and joyful classroom rituals.",
     highlights: ["Early language", "Social confidence", "Creative discovery"],
-    color: "from-sky-300 via-cyan-200 to-emerald-100",
+    color: "#67c7f5",
   },
   {
     name: "LKG",
@@ -93,7 +93,7 @@ export const programs: Program[] = [
     description:
       "Structured yet playful learning introduces pre-literacy, number familiarity, and hands-on classroom participation.",
     highlights: ["Alphabet readiness", "Number play", "Group activity"],
-    color: "from-amber-300 via-yellow-200 to-orange-100",
+    color: "#ffd85c",
   },
   {
     name: "UKG",
@@ -101,7 +101,7 @@ export const programs: Program[] = [
     description:
       "A bridge toward primary school with stronger routines, classroom confidence, expression, and readiness skills.",
     highlights: ["School readiness", "Independent habits", "Confident expression"],
-    color: "from-lime-300 via-green-200 to-emerald-100",
+    color: "#8ed8b5",
   },
 ];
 

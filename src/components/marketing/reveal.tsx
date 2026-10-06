@@ -11,9 +11,15 @@ type RevealProps = {
   className?: string;
   delay?: number;
   y?: number;
+  duration?: number;
+  once?: boolean;
 };
 
-export function Reveal({ children, className, delay = 0, y = 56 }: RevealProps) {
+function prefersReducedMotion() {
+  return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+export function Reveal({ children, className, delay = 0, y = 44, duration = 0.9, once = true }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -21,28 +27,37 @@ export function Reveal({ children, className, delay = 0, y = 56 }: RevealProps) 
 
     if (!element) return;
 
+    if (prefersReducedMotion()) {
+      gsap.set(element, { opacity: 1, y: 0, scale: 1 });
+      return;
+    }
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         element,
-        { opacity: 0, y, scale: 0.96 },
+        { opacity: 0, y, scale: 0.97 },
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 1.1,
+          duration,
           delay,
           ease: "power3.out",
           scrollTrigger: {
             trigger: element,
-            start: "top 88%",
-            once: true,
+            start: "top 90%",
+            once,
           },
         }
       );
     }, ref);
 
     return () => ctx.revert();
-  }, [delay, y]);
+  }, [delay, y, duration, once]);
 
-  return <div ref={ref} className={className}>{children}</div>;
+  return (
+    <div ref={ref} className={className}>
+      {children}
+    </div>
+  );
 }

@@ -41,41 +41,51 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Brand palette */
+  --color-strawberry: #ff5c8a;
+  --color-berry: #e94b6a;
+  --color-aqua: #67c7f5;
+  --color-sunshine: #ffd85c;
+  --color-mint: #8ed8b5;
+  --color-lavender: #b8a7f8;
+  --color-cream: #fff9ef;
+  --color-navy: #26354a;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: #fffaf4;
-  --foreground: #1b1a1a;
-  --card: #fffdfb;
-  --card-foreground: #1b1a1a;
-  --popover: #fffdfb;
-  --popover-foreground: #1b1a1a;
-  --primary: #ef5d6e;
-  --primary-foreground: #fffaf4;
-  --secondary: #f5eee7;
-  --secondary-foreground: #1b1a1a;
-  --muted: #f4ebe4;
-  --muted-foreground: #6b625d;
-  --accent: #eef7f0;
-  --accent-foreground: #1b1a1a;
+  --radius: 1.25rem;
+  --background: #fff9ef;
+  --foreground: #26354a;
+  --card: #fffdf8;
+  --card-foreground: #26354a;
+  --popover: #fffdf8;
+  --popover-foreground: #26354a;
+  --primary: #ff5c8a;
+  --primary-foreground: #ffffff;
+  --secondary: #ffe9f0;
+  --secondary-foreground: #26354a;
+  --muted: #f6efe4;
+  --muted-foreground: #6f6a63;
+  --accent: #e8f7ff;
+  --accent-foreground: #26354a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #e9ddd2;
-  --input: #eee3d8;
-  --ring: #ef5d6e;
-  --chart-1: #ef5d6e;
-  --chart-2: #70c6a0;
-  --chart-3: #7bc7ff;
-  --chart-4: #ffd166;
-  --chart-5: #b494ff;
-  --sidebar: #fffdfb;
-  --sidebar-foreground: #1b1a1a;
-  --sidebar-primary: #ef5d6e;
-  --sidebar-primary-foreground: #fffaf4;
-  --sidebar-accent: #f4ebe4;
-  --sidebar-accent-foreground: #1b1a1a;
-  --sidebar-border: #e9ddd2;
-  --sidebar-ring: #ef5d6e;
+  --border: #f0e5d6;
+  --input: #f0e5d6;
+  --ring: #ff5c8a;
+  --chart-1: #ff5c8a;
+  --chart-2: #8ed8b5;
+  --chart-3: #67c7f5;
+  --chart-4: #ffd85c;
+  --chart-5: #b8a7f8;
+  --sidebar: #fffdf8;
+  --sidebar-foreground: #26354a;
+  --sidebar-primary: #ff5c8a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f6efe4;
+  --sidebar-accent-foreground: #26354a;
+  --sidebar-border: #f0e5d6;
+  --sidebar-ring: #ff5c8a;
 }
 
 @layer base {
@@ -88,17 +98,19 @@
   }
 
   ::selection {
-    background: rgba(239, 93, 110, 0.18);
-    color: #1b1a1a;
+    background: rgba(255, 92, 138, 0.25);
+    color: #26354a;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-ui);
     background-image:
-      radial-gradient(circle at top, rgba(255, 205, 210, 0.48), transparent 28%),
-      radial-gradient(circle at 20% 18%, rgba(255, 236, 189, 0.42), transparent 18%),
-      radial-gradient(circle at 85% 15%, rgba(184, 232, 255, 0.32), transparent 20%),
-      linear-gradient(180deg, #fffdf9 0%, #fff6ef 100%);
+      radial-gradient(circle at 12% -4%, rgba(255, 216, 92, 0.22), transparent 32%),
+      radial-gradient(circle at 88% 0%, rgba(103, 199, 245, 0.18), transparent 30%),
+      radial-gradient(circle at 50% 108%, rgba(142, 216, 181, 0.18), transparent 42%),
+      linear-gradient(180deg, #fff9ef 0%, #fffdf8 100%);
+    background-attachment: fixed;
     min-height: 100vh;
   }
 
@@ -108,11 +120,146 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-display), serif;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
+
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [tabindex] {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #fff9ef;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ffd85c;
+    border: 2px solid #fff9ef;
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff5c8a;
+  }
+}
+
+/* Subtle paper grain across the whole site */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
 }
 
 /* Hide Next.js error overlay portal */
 nextjs-portal {
   display: none !important;
+}
+
+@layer utilities {
+  .blob-mask {
+    border-radius: 58% 42% 54% 46% / 52% 48% 52% 48%;
+  }
+
+  .blob-mask-alt {
+    border-radius: 44% 56% 48% 52% / 56% 44% 56% 44%;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .drop-shadow-soft {
+    filter: drop-shadow(0 18px 30px rgba(38, 53, 74, 0.14));
+  }
+
+  .shadow-candy {
+    box-shadow: 0 18px 40px -18px rgba(233, 75, 106, 0.45);
+  }
+
+  .shadow-card-soft {
+    box-shadow: 0 24px 60px -30px rgba(38, 53, 74, 0.28);
+  }
+
+  .animate-float {
+    animation: floaty 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: floaty 9s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: floaty 4.5s ease-in-out infinite;
+  }
+
+  .animate-twinkle {
+    animation: twinkle 3.2s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 14s linear infinite;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 2.6s ease-in-out infinite;
+    transform-origin: center;
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.88);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

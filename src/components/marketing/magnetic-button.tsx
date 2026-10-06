@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -11,9 +11,11 @@ type MagneticButtonProps = {
   children: React.ReactNode;
   className?: string;
   secondary?: boolean;
+  target?: "_blank";
 };
 
-export function MagneticButton({ href, children, className, secondary }: MagneticButtonProps) {
+export function MagneticButton({ href, children, className, secondary, target }: MagneticButtonProps) {
+  const reduced = useReducedMotion();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const springX = useSpring(x, { stiffness: 200, damping: 18 });
@@ -21,8 +23,9 @@ export function MagneticButton({ href, children, className, secondary }: Magneti
 
   return (
     <motion.div
-      style={{ x: springX, y: springY }}
+      style={reduced ? undefined : { x: springX, y: springY }}
       onMouseMove={(event) => {
+        if (reduced) return;
         const bounds = event.currentTarget.getBoundingClientRect();
         const dx = event.clientX - (bounds.left + bounds.width / 2);
         const dy = event.clientY - (bounds.top + bounds.height / 2);
@@ -33,21 +36,24 @@ export function MagneticButton({ href, children, className, secondary }: Magneti
         x.set(0);
         y.set(0);
       }}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={reduced ? undefined : { scale: 1.04 }}
+      whileTap={reduced ? undefined : { scale: 0.97 }}
+      className="inline-block"
     >
       <Link
         href={href}
+        target={target}
+        rel={target === "_blank" ? "noreferrer" : undefined}
         className={cn(
-          "group inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold tracking-[0.18em] uppercase transition-all duration-300",
+          "group inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-base font-extrabold transition-colors duration-300",
           secondary
-            ? "border-white/30 bg-white/12 text-white backdrop-blur-xl hover:border-white/50 hover:bg-white/16"
-            : "border-white/60 bg-white text-stone-900 shadow-[0_20px_80px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_100px_rgba(255,255,255,0.36)]",
+            ? "border-2 border-navy/15 bg-white text-navy hover:border-navy/40"
+            : "bg-strawberry text-white shadow-candy hover:bg-berry",
           className
         )}
       >
         <span>{children}</span>
-        <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+        <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1.5" />
       </Link>
     </motion.div>
   );
